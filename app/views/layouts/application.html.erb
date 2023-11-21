@@ -12,6 +12,26 @@
   </head>
 
   <body>
+    <header>
+           <% if customer_signed_in? %>
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+                   <i class="fa-solid fa-sign-out-alt"></i>  Log out
+                <% end %>
+                <% else %>
+                <li>
+                <%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
+                   <i class="fa-solid fa-sign-in-alt"></i>  Log in
+                <% end %>
+                </li>
+              <li>
+                <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+                   <i class="fa-solid fa-user-plus"></i> Sign up
+                <% end %>
+              </li>
+                <% end %>
+              </li>
+    </header>
     <%= yield %>
   </body>
 </html>
