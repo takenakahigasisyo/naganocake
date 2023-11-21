@@ -38,14 +38,14 @@
 #   is_active: true
 #   )
 # end
-  
+
 # Admin.create!(
 #   email: "test_admin@email",
 #   password: "test_admin"
 #   )
 
- 
- 
+
+
 # 5.times do |n|
 # CartItem.create!(
 #   customer_id: "#{n + 1}",
@@ -53,11 +53,11 @@
 #   amount: "#{n + 1}",
 # )
 # end
- 
+
 # 5.times do |n|
 #   Order.create!(
 #   customer_id: "#{n + 1}",
-#   shipping_fee: "800", 
+#   shipping_fee: "800",
 #   billing_amount: "1000",
 #   payment_method: 0,
 #   name: "ケーキ#{n + 1}",

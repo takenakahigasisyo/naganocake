@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+select option[value=""] {
+  display: none;
+}
+
+/* ページネーション全体 */
+.pagination{
+  text-align: center;
+  display: flex;
+  justify-content: center; 
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 15px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  text-decoration:underline;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  text-decoration:underline;
+}
