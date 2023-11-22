@@ -2,18 +2,21 @@ class Public::OrdersController < ApplicationController
  def new
    @order = Order.new
    @customer = current_customer
-   @address = @customer_address
  end
 
  def confirm
+    @current = current_customer
+    @shipping_fee = "800"
     @order = Order.new(order_params)
-   if order_params[:order][:address_option] == "0"
-        @order.postcode = current_customer.postcode
-        @order.address = current_customer.address
-        @order.name = current_customer.name
+   if params[:order][:address_option] == "0"
+        @order.postcode = @current.postcode
+        @order.address = @current.address
+        @order.name = @current.first_name + @current.first_name
    elsif params[:order][:address_option] == "1"
-        @addresses = Address.all
-        @address_confirm = Address.find(params[:order][:address_id])
+        address = Address.find(params[:order][:address_id])
+        @order.name = address.name
+        @order.address = address.address
+        @order.postcode = address.postcode
    elsif params[:order][:address_option] = "2"
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
@@ -22,6 +25,20 @@ class Public::OrdersController < ApplicationController
         render 'new'
    end
  end
+   
+   def create
+    @order = Order.new(order_params)
+    @order.save
+    @cart_items = current_customer.cart_items
+    @cart_items.each do |cart_item|
+     @order_detail = OrderDetail.new
+     @order_detail.order_id = @order.id
+     @order_detail.item_id = cart_item.item_id
+     @order_detail.amount = cart_item.amout
+     @order_detail.price_on_order = cart_item.item.price.tax_calc
+     @order_detail.save
+    end
+   end
 
 
 

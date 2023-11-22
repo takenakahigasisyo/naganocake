@@ -1,5 +1,38 @@
 <h3>注文情報確認</h3>
 
-<h5>支払方法</h5>
-　<%= @order.payment_method %>
-　
+<table>
+  <tr>
+    <td>商品名</td>
+    <td>単価（税込）</td>
+    <td>小計</td>
+    <td></td>
+
+  </tr>
+   <% current_customer.cart_items.each do |cart_item| %>
+  <tr>
+    <td><%= cart_item.item.name %></td>
+    <td><%= cart_item.item.tax_calc %></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.sum_of_price %></td>
+  </tr>
+ <% end %>
+  <tr>
+    <td>送料</td>
+    <td><%= @shipping_fee %></td>
+  </tr>
+  <tr>
+    <td>商品合計</td>
+    <td><%=  @shipping_fee %></td>
+  </tr>
+  <tr>
+    <td>請求金額</td>
+    <td><%= @shipping_fee %></td>
+  </tr>
+
+</table>
+
+  <h5>支払方法</h5>
+    <%= @order.payment_method %>
+
+  <h5>お届け先</h5>
+    <%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name %>

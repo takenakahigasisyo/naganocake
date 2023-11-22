@@ -7,4 +7,5 @@ class Order < ApplicationRecord
 
   attribute :address_id, :integer
   attribute :address_option, :integer
+  
 end
