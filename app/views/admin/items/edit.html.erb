@@ -18,22 +18,18 @@
   </div>
   <div class="form-group">
     商品名
-    <!--<label>郵便番号(ハイフンなし)</label>-->
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
     商品説明
-    <!--<label>住所</label>-->
     <%= f.text_area :explanation, class: "form-control" %>
   </div>
   <div class="form-group">
     ジャンル
-    <!--<label>宛名</label>-->
     <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name, @selected_genre_id) %>
   </div>
   <div class="form-group">
     税抜価格
-    <!--<label>住所</label>-->
     <%= f.text_field :price, class: "form-control" %>円
   </div>
     販売ステータス
