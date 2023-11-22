@@ -1,4 +1,6 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def show
     @customer = current_customer
     @customer_name = @customer.last_name + @customer.first_name
@@ -16,7 +18,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to customers_my_page_path(@customer), notice: "You have updated book successfully."
+      redirect_to customers_my_page_path(@customer), notice: "マイページを変更しました。"
     else
       render "edit"
     end

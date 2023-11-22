@@ -1,32 +1,48 @@
 <h1>Public::Customers#show</h1>
 <p>Find me in app/views/public/customers/show.html.erb</p>
 
-<h2>登録情報</h2><%= link_to '編集する', customers_information_edit_path, class: 'btn btn-success' %>
-
-<table class='table'>
+<div class='container'>
+  
+  <h3>マイページ</h3>
+  <div class='row'>
+    <h3><strong>登録情報</strong></h3><%= link_to '編集する', customers_information_edit_path, class: 'btn btn-success ml-5' %>
+  </div>
+    
+<br>
+<table class='table table-bordered border-dark'>
   <tr>
-    <th>氏名</th><td><%= @customer_name %></td>
+    <th class="table-secondary", scope="col" style="width: 30%">氏名</th><td><%= @customer_name %></td>
   </tr>
   <tr>
-    <th>カナ</th><td><%= @customer_furigana %></td>
+    <th class="table-secondary">カナ</th><td><%= @customer_furigana %></td>
   </tr>
   <tr>
-    <th>郵便番号</th><td><%= @postcode %></td>
+    <th class="table-secondary">郵便番号</th><td><%= @postcode %></td>
   </tr>
   <tr>
-    <th>住所</th><td><%= @address %></td>
+    <th class="table-secondary">住所</th><td><%= @address %></td>
   </tr>
   <tr>
-    <th>電話番号</th><td><%= @phone_number %></td>
+    <th class="table-secondary">電話番号</th><td><%= @phone_number %></td>
   </tr>
   <tr>
-    <th>メールアドレス</th><td><%= @email %></td>
+    <th class="table-secondary">メールアドレス</th><td><%= @email %></td>
   </tr>
 </table>
 
-<h2>配送先</h2>
+<br>
+<div class='row'>
+  <h3><strong>配送先</strong></h3>
+    <%= link_to "一覧を見る", addresses_path, method: :get, class: 'btn btn-primary ml-5' %>
+</div>
+<br>
+<div class='row'>
+  <h3><strong>注文履歴</strong></h3>
+    <%= link_to "一覧を見る", orders_path, method: :get, class: 'btn btn-primary ml-3' %>
+</div>
 
-<h2>注文履歴</h2>
-
-   <h2><%= link_to "logout", destroy_customer_session_path, method: :delete, class: 'btn btn-success' %></h2>
+<!--作業用    -->
+ <h2><%= link_to "logout", destroy_customer_session_path, method: :delete, class: 'btn btn-success' %></h2>
    
+   
+</div>
