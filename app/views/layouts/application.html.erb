@@ -12,6 +12,20 @@
   </head>
 
   <body>
+    <!--おがわ-->
+    <header>
+      <% if admin_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "アバウト", about_path %>
+        </li>
+      <% end %>
+    </header>
+  
     <%= yield %>
+     <!--おがわ-->
   </body>
 </html>
