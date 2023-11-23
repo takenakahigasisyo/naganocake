@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+
  */
 
 select option[value=""] {
@@ -41,3 +42,4 @@ select option[value=""] {
 .pagination a:hover{
   text-decoration:underline;
 }
+

@@ -1,0 +1,9 @@
+<div class="col-md-8 offset-md-1">
+  <div class="mx-auto" >
+    <h4 class="m-5">ショッピングカート</h4>
+    
+      <%if @cart_item.customer == current_customer %>
+        <%= link_to "カートを空にする", item_path(@cart_item), method: :delete, class:"btn btn-danger" %>
+      <% end %>
+  </div>
+</div>
