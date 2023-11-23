@@ -23,6 +23,7 @@
 # 	)
 # end
 
+
 # 5.times do |n|
 # Customer.create!(
 #   last_name: "テスト",
@@ -43,6 +44,7 @@
 #   email: "test_admin@email",
 #   password: "test_admin"
 #   )
+
 
 
 
@@ -76,11 +78,14 @@
 #   making_status: 0,
 #   )
 
-  5.times do |no|
- Address.create!(
-customer_id: "#{ 1}",
-name: "山田太郎#{no + 1}",
-postcode: "315473#{no + 1}",
-address: "東京都千代田区永田町１丁目７−#{no + 1}",
-)
+# end
+
+5.times do |no|
+  Address.create!(
+	customer_id: "#{no + 1}",
+	name: "山田太郎#{no + 1}",
+	postcode: "315473#{no + 1}",
+	address: "東京都千代田区永田町１丁目７−#{no + 1}",
+	)
 end
+

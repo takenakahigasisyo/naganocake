@@ -9,7 +9,16 @@ class Customer < ApplicationRecord
     has_many :cart_items, dependent: :destroy
     validates :encrypted_password,length: {minimum: 6}
 
+
   def full_address 
    "#{address} #{postcode}" # 住所と郵便番号を組み合わせた文字列を返す
   end
+
+
+    # ログイン時に退会済みのユーザーが同じアカウントでログイン出来ないようにする記載
+  def active_for_authentication?
+    super && (is_active == true)
+  end
+
+
 end

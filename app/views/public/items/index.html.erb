@@ -1,0 +1,18 @@
+<div class='container'>
+  <h2><strong>商品一覧(全<%= @items.count %>件)</strong></h2>
+  
+    <div class="d-flex flex-wrap">
+      <% @items.each do |item| %>
+       <div class="card border-0">
+         <%= link_to item_path(item.id) do %>
+          <!--get_item_imageメソッド反映-->
+          <%= image_tag 'test_cow.jpg', size: '300x200' %>
+          <% end %>
+        <div class="card-body">
+          <p class="card-title"><%= item.name %></p>
+          <p class="card-title">￥ <%= item.price %></p>
+        </div>
+       </div>
+    <% end %>
+  </div>
+</div>
