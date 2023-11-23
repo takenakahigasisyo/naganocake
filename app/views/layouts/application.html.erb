@@ -7,25 +7,17 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/5c4a1fefd6.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> <!--Css使えるように足したけど不具合の元かも-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <!--おがわ-->
-    <header>
-      <% if admin_signed_in? %>
-        <li>
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "アバウト", about_path %>
-        </li>
-      <% end %>
-    </header>
   
+  <body>
+
+    <%= render 'layouts/header' %>
+    <%= flash[:notice] %>
     <%= yield %>
-     <!--おがわ-->
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>

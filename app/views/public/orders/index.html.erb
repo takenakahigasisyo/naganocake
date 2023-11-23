@@ -1,0 +1,23 @@
+<h3>注文履歴一覧</h3>
+
+<table>
+    <tr>
+        <td>注文日</td>
+        <td>配送先</td>
+        <td>注文商品</td>
+        <td>支払金額</td>
+        <td>ステータス</td>
+        <td>注文詳細</td>
+    </tr>
+    <%= @orders.each do |cart_item| %>
+
+     <tr>
+         <td><%= %></td>
+         <td><%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name%></td>
+         <td><%= %></td>
+         <td><%= %></td>
+         <td><%= %></td>
+         <td><%= %></td>
+         <td><%= %></td>
+    </tr>
+</table>

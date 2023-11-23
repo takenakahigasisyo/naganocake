@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'cart_items/index'
-  end
-  get 'cart_items/index'
+
  devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -27,8 +24,8 @@ scope module: :public do
   resources :cart_items, only:[:index, :update, :destroy, :create]
   delete 'cart_items/destroy_all'
   resources :orders, only:[:new, :create, :index, :show]
-  post 'oders/confirm'
-  get 'oders/completion'
+  post 'orders/confirm' #orderのrを追加した
+  get 'orders/completion' #oderのrを追加した
   resources :addresses, only:[:index, :edit, :create, :update, :destroy]
  end
 
@@ -38,7 +35,7 @@ scope module: :public do
     resources :items, only:[:index, :new, :create, :show, :edit, :update]
     resources :genres, only:[:index, :create, :edit, :update]
     resources :customers, only:[:index, :show, :edit, :update]
-    resources :orders, only:[:show, :update]
+    resources :orders, only:[:show, :update] #index追加→やっぱ削除
     resources :order_details, only:[:update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

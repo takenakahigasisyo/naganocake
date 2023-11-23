@@ -1,0 +1,23 @@
+<div class='container text-center"'>
+  <div class="row">
+    <div class="col">
+      <div class="h-100"><%= image_tag 'test_cow.jpg', size: '500x300' %></div>
+    </div>
+      <div class="col">
+        <div class="h-100">
+        <h3><strong><%= @item.name %></strong></h3>
+          <p style="height: 200px;", class="text-5xl"><strong><%= @item.explanation %></strong></p>
+        <h3><strong>￥ <%= @item.price %><small class="h6">（税込）</small></strong></h3>
+        </div>
+        
+        <% if customer_signed_in? %>
+          <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+            <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.hidden_field :customer_id, value: current_customer.id %>
+            <%= f.submit "カートに入れる", class: 'btn btn-outline-dark ml-5'%>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
