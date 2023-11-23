@@ -49,10 +49,11 @@ class Public::OrdersController < ApplicationController
   def index
    @orders = Order.all
   end
-  
+
   def show
-   @order = Oder.new
-   @order_show = Order.find(params[:order][:])
+   @order = Order.new
+   @order_show = Order.find(params[:id])
+  end
 
 private
  def order_params
