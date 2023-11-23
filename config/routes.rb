@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/edit'
+  end
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/update'
+    get 'customers/confirm'
+    get 'customers/leave'
+  end
  devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
