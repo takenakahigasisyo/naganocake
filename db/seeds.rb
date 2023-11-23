@@ -23,6 +23,7 @@
 # 	)
 # end
 
+
 # 5.times do |n|
 # Customer.create!(
 #   last_name: "テスト",
@@ -43,6 +44,7 @@
 #   email: "test_admin@email",
 #   password: "test_admin"
 #   )
+
 
 
 
@@ -75,6 +77,7 @@
 #   price_on_order: "800",
 #   making_status: 0,
 #   )
+
 # end
 
 5.times do |no|
@@ -85,3 +88,4 @@
 	address: "東京都千代田区永田町１丁目７−#{no + 1}",
 	)
 end
+

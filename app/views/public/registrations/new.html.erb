@@ -1,11 +1,45 @@
-<h2>Sign up</h2>
+<h2>新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :（姓） %><br>
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :（名） %><br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :（セイ） %><br>
+    <%= f.text_field :last_name_furigana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :（メイ） %><br>
+    <%= f.text_field :first_name_furigana %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+      <%= f.label :郵便番号 %><br />
+      <%= f.text_field :postcode %>
+    </div>
+  <div class="field">
+      <%= f.label :住所 %><br />
+      <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+      <%= f.label :電話番号 %><br />
+      <%= f.text_field :phone_number %>
   </div>
 
   <div class="field">
@@ -22,8 +56,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
+<h4>既に登録済みの方</h4>
 <%= render "public/shared/links" %>
