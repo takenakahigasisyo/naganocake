@@ -1,3 +1,4 @@
+
 <h3>注文情報確認</h3>
 
 <table>
@@ -8,6 +9,7 @@
     <td></td>
 
   </tr>
+  <% sum = 0 %>
    <% current_customer.cart_items.each do |cart_item| %>
   <tr>
     <td><%= cart_item.item.name %></td>
@@ -15,6 +17,8 @@
     <td><%= cart_item.amount %></td>
     <td><%= cart_item.sum_of_price %></td>
   </tr>
+  <% sum = sum + cart_item.sum_of_price %>
+  <%= sum %>
  <% end %>
   <tr>
     <td>送料</td>
@@ -22,11 +26,11 @@
   </tr>
   <tr>
     <td>商品合計</td>
-    <td><%=  @shipping_fee %></td>
+    <td><%= sum %></td>
   </tr>
   <tr>
     <td>請求金額</td>
-    <td><%= @shipping_fee %></td>
+    <td><%= sum + @shipping_fee %></td>
   </tr>
 
 </table>
@@ -36,3 +40,9 @@
 
   <h5>お届け先</h5>
     <%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name %>
+<%= form_with model: @order, url: orders_path, method: :post do |f| %>
+ <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+ <%= f.hidden_field :postcode, :value => @order.postcode %>
+ <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.submit "注文を確定する" %>
+  <% end %>

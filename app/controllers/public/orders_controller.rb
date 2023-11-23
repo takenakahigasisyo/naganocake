@@ -6,7 +6,8 @@ class Public::OrdersController < ApplicationController
 
  def confirm
     @current = current_customer
-    @shipping_fee = "800"
+    @shipping_fee = 800
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
    if params[:order][:address_option] == "0"
         @order.postcode = @current.postcode
@@ -24,12 +25,12 @@ class Public::OrdersController < ApplicationController
    else
         render 'new'
    end
+   byebug
  end
-   
+
    def create
     @order = Order.new(order_params)
     @order.save
-    @cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
      @order_detail = OrderDetail.new
      @order_detail.order_id = @order.id
@@ -38,9 +39,16 @@ class Public::OrdersController < ApplicationController
      @order_detail.price_on_order = cart_item.item.price.tax_calc
      @order_detail.save
     end
+    redirect_to orders_completion_path
    end
 
+   def completion
+   end
 
+  def index
+   @order = Order.new
+   @orders = Order.all
+  end
 
 private
  def order_params
