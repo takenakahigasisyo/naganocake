@@ -3,7 +3,7 @@
   <h2>商品新規登録</h2>
   
   <% if @item.errors.any? %>
-    <strong><%= @item.errors.count %>errors prohibited this book from being saved:</strong>
+    <strong><%= @item.errors.count %>件のエラーが出たので登録できませんでした。</strong>
     <ul>
       <% @item.errors.full_messages.each do |message| %>
         <li><%= message %></li><br>

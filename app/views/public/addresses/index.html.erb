@@ -47,7 +47,7 @@
   <h2>配送先登録/一覧</h2>
   
   <% if @address.errors.any? %>
-    <strong><%= @address.errors.count %>errors prohibited this book from being saved:</strong>
+    <strong><%= @address.errors.count %>件のエラーが出たので登録できませんでした。</strong>
     <ul>
       <% @address.errors.full_messages.each do |message| %>
         <li><%= message %></li><br>
