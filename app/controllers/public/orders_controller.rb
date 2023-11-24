@@ -25,6 +25,7 @@ class Public::OrdersController < ApplicationController
    else
         render 'new'
    end
+
  end
 
    def create

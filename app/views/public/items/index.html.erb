@@ -5,8 +5,7 @@
       <% @items.each do |item| %>
        <div class="card border-0">
          <%= link_to item_path(item.id) do %>
-          <!--get_item_imageメソッド反映-->
-          <%= image_tag 'test_cow.jpg', size: '300x200' %>
+          <%= image_tag item.get_item_image, size: '300x200' %>
           <% end %>
         <div class="card-body">
           <p class="card-title"><%= item.name %></p>
