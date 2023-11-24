@@ -22,7 +22,7 @@ ja:
         genre: ジャンル
         name: 商品名
         price: 税抜価格
-        explanation: 税抜価格
+        explanation: 説明
       address:
         name: 宛名
         postcode: 郵便番号(ハイフンなし)
