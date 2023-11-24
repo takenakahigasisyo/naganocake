@@ -1,44 +1,55 @@
 <div class="container py-5">
 
-  <h2>商品新規登録</h2>
-  
-  <% if @item.errors.any? %>
-    <strong><%= @item.errors.count %>件のエラーが出たので登録できませんでした。</strong>
-    <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li><br>
-      <% end%>
-    </ul>
-  <% end %>
+  <h2>　　　　　　　　　　　　商品新規登録</h2>
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
+      <% if @item.errors.any? %>
+        <strong><%= @item.errors.count %>件のエラーが出たので登録できませんでした。</strong>
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li><br>
+          <% end%>
+        </ul>
+      <% end %>
   
   <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
-  <div class="form-group">
-    商品画像
-    <%= f.file_field :item_image, class: "form-control-file", accept: 'image/*' %>
-  </div>
-  <div class="form-group">
-    商品名
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    商品説明
-    <%= f.text_area :explanation, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    ジャンル
-    <%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name), { prompt: '--選択して下さい--' } %>
-  </div>
-  <div class="form-group">
-    税抜価格
-    <%= f.text_field :price, class: "form-control" %>円
-  </div>
-    販売ステータス
-    <%= f.radio_button :is_saled , true, checked: true %>
-    <%= f.label :is_saled ,"販売中",value: "ture" %>
-    <%= f.radio_button :is_saled , false %>
-    <%= f.label :is_saled ,"販売停止中",value: "false" %>
+  <table class="table table-borderless">
+    <tr>
+      <td>商品画像</td>
+      <td><%= f.file_field :item_image, class: "form-control-file", accept: 'image/*' %></td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= f.text_field :name, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td>商品説明</td>
+      <td><%= f.text_area :explanation, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= f.select :genre_id, options_from_collection_for_select(@genre, :id, :name), { prompt: '--選択して下さい--' }, class: "form-control" %></td>
+    </tr>
+    <tr>
+      <td>税抜価格</td>
+      <td><%= f.text_field :price, class: "form-control" %></td>
+    </tr>
+    <tr>
+        <th>販売ステータス</th>
+        <td>
+        <%= f.radio_button :is_saled, true, checked: true %>
+        <%= f.label :is_saled, "販売中", value: "true" %>
+      　　
+        <%= f.radio_button :is_saled, false %>
+        <%= f.label :is_saled, "販売停止中", value: "false" %>
+        </td>
+    </tr>
+    </table>
     <br>
-    <%= f.submit '新規登録', class: "btn btn-success" %>
-  <% end %>
-
+    </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <%= f.submit '新規登録', class: "btn btn-success" %>
+      <% end %>
+    </div>
 </div>
