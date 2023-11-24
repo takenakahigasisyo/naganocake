@@ -1,8 +1,9 @@
+<div class='container'>
 <h2><%= @customer_name %>さんの会員詳細</h2>
 
 
 <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
-  <table class='table'>
+  <table class='table table-borderless'>
     <tr>
       <th>会員ID</th><td><%= @customer.id %></td>
     </tr>
@@ -16,7 +17,7 @@
       <th>郵便番号</th><td><%= f.text_field :postcode, class: 'form-control customer_postcode' %></td>
     </tr>
     <tr>
-      <th>住所</th><td><%= f.text_field :address, class: 'form-control customer_address' %></td>
+      <th>住所</th><td><%= f.text_field :address, class: 'form-control customer_address', style: "width:208%"  %></td>
     </tr>
     <tr>
       <th>電話番号</th><td><%= f.text_field :phone_number, class: 'form-control customer_phone_number' %></td>
@@ -39,3 +40,4 @@
   </table>
   <% end %>
 
+</div>
