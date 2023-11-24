@@ -22,11 +22,22 @@ ja:
         genre: ジャンル
         name: 商品名
         price: 税抜価格
-        explanation: 税抜価格
+        explanation: 説明
       address:
         name: 宛名
         postcode: 郵便番号(ハイフンなし)
         address: 住所
+      customer:
+        last_name: 性
+        first_name: 名
+        last_name_furigana: 性(フリガナ)
+        first_name_furigana: 名(フリガナ)
+        postcode: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        email: メールアドレス
+      genre:
+        name: ジャンル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
