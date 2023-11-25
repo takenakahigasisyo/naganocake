@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4 col-sm-6 col-xs-6">
         <h4 class="m-5">ショッピングカート
-          <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class:"btn btn-danger" %>
+          <%= link_to "カートを空にする", items_path, method: :delete, class:"btn btn-danger" %>
         </h4>
       </div>
     </div>
@@ -47,7 +47,7 @@
             <%= (cart_item.item.price * 1.1).floor * cart_item.amount %>
           </td>
           <td>
-            <%= link_to "削除する",cart_items_path(cart_item.id,cart_item),method: :delete, class:"btn btn-danger btn-sm" %>
+            <%= link_to "削除する", cart_items_path(cart_item.id,cart_item), method: :delete, class:"btn btn-danger btn-sm" %>
           </td>
         </div>
         <% total_amount += (cart_item.item.price * 1.1 * cart_item.amount) %>
