@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
    else
-        render 'new'
+        render :new
    end
 
  end
@@ -41,7 +41,7 @@ class Public::OrdersController < ApplicationController
      @order_detail.price_on_order = cart_item.item.tax_calc
      @order_detail.save
     end
-    redirect_to orders_completion_path
+     redirect_to orders_completion_path
    end
 
    def completion

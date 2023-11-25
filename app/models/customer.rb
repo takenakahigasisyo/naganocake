@@ -10,8 +10,8 @@ class Customer < ApplicationRecord
     validates :encrypted_password,length: {minimum: 6}
 
 
-  def full_address 
-   "#{address} #{postcode}" # 住所と郵便番号を組み合わせた文字列を返す
+  def full_address
+   "#{postcode}#{address} " # 住所と郵便番号を組み合わせた文字列を返す
   end
 
 
