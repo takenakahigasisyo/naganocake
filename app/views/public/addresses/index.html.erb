@@ -3,16 +3,16 @@
 <div class="container py-5">
 
   <h2 class="pb-5">配送先登録/一覧</h2>
-  
-  <% if @address.errors.any? %>
-    <strong><%= @address.errors.count %>件のエラーが出たので登録できませんでした。</strong>
-    <ul>
-      <% @address.errors.full_messages.each do |message| %>
-        <li><%= message %></li><br>
-      <% end%>
-    </ul>
-  <% end %>
-  
+    <div class="row">
+      <% if @address.errors.any? %>
+        <strong><%= @address.errors.count %>件のエラーが出たので登録できませんでした。</strong>
+        <ul>
+          <% @address.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end%>
+        </ul>
+      <% end %>
+    </div>
   <%= form_with model: @address, url: '/addresses', method: :post do |f| %>
   <div class="form-group row">
     <label class="col-sm-3 col-form-label">郵便番号(ハイフンなし)</label>
