@@ -1,11 +1,8 @@
 <div class="container">
-  <div class="form-group">
-    <div class="row">
-      <div class="col-md-4 col-sm-6 col-xs-6">
-        <h4 class="m-5">ショッピングカート
-          <%= link_to "カートを空にする", items_path, method: :delete, class:"btn btn-danger" %>
-        </h4>
-      </div>
+  <div class="form-group d-flex d-inline mt-2">
+    <h4 class="">ショッピングカート</h4>
+    <div class="col text-right mb2">
+      <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class:"btn btn-danger" %>
     </div>
   </div>
 </div>
@@ -47,7 +44,7 @@
             <%= (cart_item.item.price * 1.1).floor * cart_item.amount %>
           </td>
           <td>
-            <%= link_to "削除する", cart_items_path(cart_item.id,cart_item), method: :delete, class:"btn btn-danger btn-sm" %>
+            <%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-danger btn-sm" %>
           </td>
         </div>
         <% total_amount += (cart_item.item.price * 1.1 * cart_item.amount) %>
@@ -57,16 +54,16 @@
 </div>
 
 <div class="container">
-  <table class="table table-bordered">
+  <table class="table table-bordered w-25 ml-auto">
     <thead>
       <tr>
-        <td>合計金額</td>
-        <td><%= total_amount.floor.to_s(:delimited) %>円</td>
+        <td class="text-left">合計金額</td>
+        <td class= "text-right"><%= total_amount.floor.to_s(:delimited) %></td>
       </tr>
     </thead>
   </table>
   <%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %>
-  <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg" %>
+  <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg text-center" %>
 </div>
 
 

@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-
+  before_action :authenticate_customer!
   def index
     @cart_items = current_customer.cart_items
 
@@ -17,8 +17,8 @@ class Public::CartItemsController < ApplicationController
 
   # みかん記載。item.showページから商品をカート追加するために必要
   def create
-    cart_item = CartItem.new(cart_item_params)
-		if cart_item.save
+    @cart_item = CartItem.new(cart_item_params)
+		if @cart_item.save
 			redirect_to cart_items_path
 		else
 			flash[:notice] = "個数を選択してください"
@@ -27,15 +27,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
-    cart_item = CartItem.find(cart_item_params)
+    cart_item = CartItem.find(params[:id])
     cart_item.destroy
     redirect_to cart_items_path
   end
 
   def destroy_all
-    cart_item = CartItem.all
+    cart_item = current_customer.cart_items
     cart_item.destroy_all
-    redirect_to items_path
+    redirect_to cart_items_path
   end
 
   private
