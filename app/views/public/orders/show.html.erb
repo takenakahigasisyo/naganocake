@@ -28,7 +28,7 @@
         <table class="table table-bordered">
          <tr>
            <th class="table-active">商品合計</th>
-           <td ><%= @order_show. billing_amount %></td>
+           <td ><%= @order_show.billing_amount - @order_show.shipping_fee %></td>
          </tr>
          <tr>
            <th class="table-active">配送料</th>
@@ -36,7 +36,7 @@
          </tr>
          <tr>
            <th class="table-active">ご請求額</th>
-           <td><%= @order_show.billing_amount  + @order_show.shipping_fee %></td>
+           <td><%= @order_show.billing_amount %></td>
          </tr>
         </table>
      </div>

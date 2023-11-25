@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
    if params[:order][:address_option] == "0"
         @order.postcode = @current.postcode
         @order.address = @current.address
-        @order.name = @current.first_name + @current.last_name
+        @order.name = @current.last_name + @current.first_name
    elsif params[:order][:address_option] == "1"
         address = Address.find(params[:order][:address_id])
         @order.name = address.name
@@ -39,7 +39,9 @@ class Public::OrdersController < ApplicationController
      @order_detail.item_id = cart_item.item_id
      @order_detail.amount = cart_item.amount
      @order_detail.price_on_order = cart_item.item.tax_calc
-     @order_detail.save
+     if @order_detail.save
+      @cart_items.destroy_all
+     end
     end
      redirect_to orders_completion_path
    end
@@ -53,7 +55,7 @@ class Public::OrdersController < ApplicationController
 
   def show
    @order = Order.new
-   @order_show = Order.find(params[:id]) 
+   @order_show = Order.find(params[:id])
   end
 
 private

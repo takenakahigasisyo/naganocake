@@ -17,10 +17,12 @@
        <td class="align-middle"><%= cart_item.amount %></td>
        <td class="align-middle"><%= cart_item.sum_of_price %></td>
      </tr>
+      <% sum = sum + cart_item.sum_of_price %>
+     <% end %>
      </table>
     </div>
-    <% sum = sum + cart_item.sum_of_price %>
-    <% end %>
+
+
 
  <div class="col-sm-3">
   <table class="table table-bordered">
