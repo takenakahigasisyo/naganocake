@@ -11,7 +11,7 @@
           <% end%>
         </ul>
       <% end %>
-  
+
   <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
   <table class="table table-borderless">
     <tr>
@@ -39,7 +39,7 @@
         <td>
         <%= f.radio_button :is_saled, true, checked: true %>
         <%= f.label :is_saled, "販売中", value: "true" %>
-      　　
+
         <%= f.radio_button :is_saled, false %>
         <%= f.label :is_saled, "販売停止中", value: "false" %>
         </td>
@@ -50,6 +50,6 @@
     </div>
     <div class="row d-flex justify-content-center">
       <%= f.submit '新規登録', class: "btn btn-success" %>
-      <% end %>
     </div>
+  <% end %>
 </div>

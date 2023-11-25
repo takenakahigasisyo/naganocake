@@ -40,7 +40,7 @@
 
   <h5>お届け先</h5>
     <%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name %>
-    <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
      <%= f.hidden_field :payment_method, :value => @order.payment_method %>
      <%= f.hidden_field :postcode, :value => @order.postcode %>
      <%= f.hidden_field :address, :value => @order.address %>

@@ -1,25 +1,24 @@
-<div class="main-container">
 <div class="container">
-  <div class="row justify-content-center pt-3 mb-3">
+  <div class="row justify-content-center mb-3">
     <div class="h-100 pull-right"><%= image_tag 'top_image.jpg', size: '650x400' %></div>
   </div>
-  <div class="row justify-content-center border-top border-bottom border-dark">
-    <h1 class="font-weight-bolder" style="font-size:60px; font-family: 'Monotype Corsiva'">- Welcome to Nagano Cake -</h3>
+  <div class="row justify-content-center border-top border-bottom">
+    <h3>- Welcome to Nagano Cake -</h3>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col text-center text-secondary h6">
-    <p class="font-weight-bolder" style="font-size:20px; font-family: 'SimSun'">このサイトは、ケーキ販売のECサイトになります。</p>
-    <p class="font-weight-bolder" style="font-size:20px; font-family: 'SimSun'">会員でない方も商品の閲覧できますが、</p>
-    <p class="font-weight-bolder" style="font-size:20px; font-family: 'SimSun'">購入には会員登録が必要になります。</p>
+    <p>このサイトは、ケーキ販売のECサイトになります。</p>
+    <p>会員でない方も商品の閲覧できますが、</p>
+    <p>購入には会員登録が必要になります。</p>
     </div>
   </div>
   
-  <div class="row border-dark border-bottom mt-5">
-    <h3 style="font-size:30px; font-family: 'Haettenschweiler'">- New Product -</h3>
+  <div class="row border-bottom mt-5">
+    <h3>- New Product -</h3>
   </div>
   <div class="row justify-content-center mt-4">
   <% @items.first(4).each do |item| %>
-       <div class="card border-1">
+       <div class="card border-0">
          <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_item_image, size: '200x150' %>
           <% end %>
@@ -31,7 +30,6 @@
     <% end %>
   </div>
   <div class="row justify-content-end mr-5">
-  <%= link_to 'MORE >', items_path, class: "font-weight-bolder", style: "font-size:20px" %>
+  <%= link_to 'MORE >', items_path %>
   </div>
-</div>
 </div>
