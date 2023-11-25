@@ -43,3 +43,7 @@ select option[value=""] {
   text-decoration:underline;
 }
 
+.main-container {
+  background-image: url('/assets/spray_00218.jpg');
+  background-size:cover;
+}
