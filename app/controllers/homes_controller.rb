@@ -1,4 +1,5 @@
 class HomesController < ApplicationController
+  before_action :authenticate_customer!
   def top
     @items = Item.where(is_saled: true).order(created_at: :desc)
   end

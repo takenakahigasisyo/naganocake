@@ -23,9 +23,10 @@ scope module: :public do
 
   resources :cart_items, only:[:index, :update, :destroy, :create]
   delete 'cart_items/destroy_all'
-  resources :orders, only:[:new, :create, :index, :show]
   post 'orders/confirm' #orderのrを追加した
   get 'orders/completion' #oderのrを追加した
+  resources :orders, only:[:new, :create, :index, :show]
+
   resources :addresses, only:[:index, :edit, :create, :update, :destroy]
  end
 
