@@ -12,7 +12,7 @@
   <% sum = 0 %>
    <% current_customer.cart_items.each do |cart_item| %>
   <tr>
-    <td><%= cart_item.item.namer %></td>
+    <td><%= cart_item.item.name %></td>
     <td><%= cart_item.item.tax_calc %></td>
     <td><%= cart_item.amount %></td>
     <td><%= cart_item.sum_of_price %></td>
@@ -40,7 +40,7 @@
 
   <h5>お届け先</h5>
     <%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name %>
-    <%= form_with model: @order, url: orders_path, method: :post do |f| %>
+    <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
      <%= f.hidden_field :payment_method, :value => @order.payment_method %>
      <%= f.hidden_field :postcode, :value => @order.postcode %>
      <%= f.hidden_field :address, :value => @order.address %>
