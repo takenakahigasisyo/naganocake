@@ -25,6 +25,7 @@ class Public::OrdersController < ApplicationController
    else
         render :new
    end
+
  end
 
    def create
@@ -52,7 +53,7 @@ class Public::OrdersController < ApplicationController
 
   def show
    @order = Order.new
-   @order_show = Order.find(params[:id])
+   @order_show = Order.find(params[:id]) 
   end
 
 private

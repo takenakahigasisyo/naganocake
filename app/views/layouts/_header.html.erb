@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="/"><%= image_tag 'naganocake_logo.png', size: '100x100' %></a>
+      <a class="navbar-brand" href="/"><%= image_tag 'naganocake_logo2.png', size: '150x100' %></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,6 +10,9 @@
 
 <!--customerログイン時-->
         <% if customer_signed_in? %>
+        <li class="mr-5 mt-2">
+          <div>ようこそ、<%= current_customer.last_name %>さん</div>
+        </li>
           <li>
             <%= link_to customers_my_page_path, class: 'nav-link' do %>
               <i class="fa-solid fa-user"></i> マイページ
