@@ -71,7 +71,7 @@ end
 
 5.times do |n|
 OrderDetail.create!(
-  order_id: "#{n + 1}",
+  order_id: "1",
   item_id: "#{n + 1}",
   amount: "#{n + 1}",
   price_on_order: "800",
