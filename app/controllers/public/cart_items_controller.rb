@@ -18,8 +18,19 @@ class Public::CartItemsController < ApplicationController
     redirect_to '/items'
   end
   
+  # みかん記載。item.showページから商品をカート追加するために必要
+  def create
+    cart_item = CartItem.new(cart_item_params)
+		if cart_item.save
+			redirect_to cart_items_path 
+		else
+			flash[:notice] = "個数を選択してください"
+			redirect_to request.referer
+		end
+  end
+  
   private
   def cart_item_params
-   params.require(:cart_item).permit(:item_id, :amount)
+   params.require(:cart_item).permit(:item_id, :amount, :customer_id)# customer_id追記（みかん）
   end
 end
