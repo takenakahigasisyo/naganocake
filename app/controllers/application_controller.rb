@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  
+
   def after_sign_in_path_for(resource)
     if resource == :admin
       # 管理者側の遷移先
@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-  
+
    def after_sign_out_path_for(resource)
     if resource == :admin
       # 管理者側の遷移先
-    elsif rosource == :customer
+    elsif resource == :customer
       root_path
     end
    end
