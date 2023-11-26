@@ -11,10 +11,10 @@
         <th class="table-active" style="width:10%">支払金額</th>
         <th class="table-active" style="width:10%">ステータス</th>
         <th class="table-active" style="width:15%">注文詳細</th>
-    </tr>
+       </tr>
 
-    <% @orders.each do |order| %>
-     <tr>
+        <% @orders.each do |order| %>
+       <tr>
          <td class="align-middle"><%= order.created_at.strftime('%Y/%m/%d') %></td>
          <td class="align-middle"><%= "〒" + " " + order.postcode + " " + order.address + " " + order.name %></td>
          <td class="align-middle">
@@ -25,6 +25,10 @@
          <td class="align-middle"><%= order.billing_amount %></td>
          <td class="align-middle"><%= order.status_i18n %></td>
          <td class="align-middle"><%= link_to "表示する", order_path(order.id) %></td>
-    </tr>
-    <% end %>
-</table>
+       </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.where(is_saled: true)
+    @items = Item.where(is_saled: "true")
   end
 
   def show

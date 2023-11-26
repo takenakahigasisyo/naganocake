@@ -22,9 +22,9 @@ scope module: :public do
   patch 'customers/leave' , to:'customers#leave'
   delete 'cart_items/destroy_all'
   resources :cart_items, only:[:index, :update, :destroy, :create]
-  resources :orders, only:[:new, :create, :index, :show]
   post 'orders/confirm' #orderのrを追加した
   get 'orders/completion' #oderのrを追加した
+  resources :orders, only:[:new, :create, :index, :show]
   resources :orders, only:[:new, :create, :index, :show]
 
   resources :addresses, only:[:index, :edit, :create, :update, :destroy]
