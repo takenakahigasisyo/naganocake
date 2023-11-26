@@ -17,19 +17,19 @@
   <div class="row border-dark border-bottom mt-5">
     <h3 style="font-size:30px; font-family: 'Haettenschweiler'">- New Product -</h3>
   </div>
-  <div class="row justify-content-center mt-4">
-  <% @items.first(4).each do |item| %>
-       <div class="card border-1">
-         <%= link_to item_path(item.id) do %>
-          <%= image_tag item.get_item_image, size: '200x150' %>
-          <% end %>
-        <div class="card-body">
-          <p class="card-title text-center"><%= item.name %></p>
-          <p class="card-title text-center">￥ <%= item.price %></p>
-        </div>
-       </div>
-    <% end %>
-  </div>
+ <div class="row justify-content-center mt-4">
+ <% @items.first(4).each do |item| %>
+    <div>
+     <%= link_to item_path(item.id) do %>
+     <%= image_tag item.get_item_image, size: '200x150' %>
+    <div>
+     <p><%= item.name %></p>
+     <p>￥ <%= item.price %></p>
+    </div>
+    </div>
+     <% end %>
+  <% end %>
+ </div>
   <div class="row justify-content-end mr-5">
   <%= link_to 'MORE >', items_path, class: "font-weight-bolder", style: "font-size:20px" %>
   </div>

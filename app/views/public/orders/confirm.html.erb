@@ -49,6 +49,7 @@
   </table>
 </div>
 
+
     <%= form_with model: @order, url: orders_path, method: :post do |f| %>
      <%= f.hidden_field :payment_method, :value => @order.payment_method %>
      <%= f.hidden_field :postcode, :value => @order.postcode %>
