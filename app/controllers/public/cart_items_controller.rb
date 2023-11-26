@@ -25,17 +25,15 @@ class Public::CartItemsController < ApplicationController
     if cart_item = CartItem.find_by(item_id: item_id)
       amount = cart_item.amount + amount.to_i
       cart_item.update(amount: amount)
+      redirect_to cart_items_path
     else
       @cart_item = CartItem.new(cart_item_params)
-  		if @cart_item.save
-  			redirect_to cart_items_path
-  		else
-  			flash[:notice] = "個数を選択してください"
-  			redirect_to request.referer
-  		end
+      if @cart_item.save
+        redirect_to cart_items_path
+      else
+        redirect_to request.referer
+      end
     end
-  redirect_to cart_items_path
-
   end
 
   def destroy
