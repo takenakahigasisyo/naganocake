@@ -40,7 +40,7 @@
           
           <% total_amount = 0 %>
           <% @order_detail.each do |order_detail| %>
-          <tr>
+          <tr class="table-light">
             <td><%= order_detail.item.name %></td>
             <td><%= order_detail.price_on_order.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
