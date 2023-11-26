@@ -20,9 +20,9 @@ scope module: :public do
   patch 'customers/information' , to:'customers#update'
   get 'customers/confirm' , to:'customers#confirm'
   patch 'customers/leave' , to:'customers#leave'
-
-  resources :cart_items, only:[:index, :update, :destroy, :create]
   delete 'cart_items/destroy_all'
+  resources :cart_items, only:[:index, :update, :destroy, :create]
+  resources :orders, only:[:new, :create, :index, :show]
   post 'orders/confirm' #orderのrを追加した
   get 'orders/completion' #oderのrを追加した
   resources :orders, only:[:new, :create, :index, :show]

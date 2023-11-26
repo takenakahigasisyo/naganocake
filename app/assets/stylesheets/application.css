@@ -42,8 +42,16 @@ select option[value=""] {
 .pagination a:hover{
   text-decoration:underline;
 }
-
+/*topページの背景画像設定*/
 .main-container {
   background-image: url('/assets/spray_00218.jpg');
   background-size:cover;
+}
+
+ /*ヘッダーが常に表示されるように記述*/
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
 }

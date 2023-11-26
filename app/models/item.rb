@@ -11,10 +11,11 @@ class Item < ApplicationRecord
     (price * 1.1).floor 
   end
     
-  # validates :genre_id, presence: true
+  #
   validates :name, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
   validates :explanation, presence: true
+  #validates :genre_id, presence: true
   
   def get_item_image
     (item_image.attached?) ? item_image : 'no_image.jpg'
