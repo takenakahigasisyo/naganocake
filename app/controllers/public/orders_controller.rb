@@ -30,7 +30,7 @@ class Public::OrdersController < ApplicationController
        end
    end
 
- end
+
 
    def create
     @order = Order.new(order_params)
@@ -54,7 +54,7 @@ class Public::OrdersController < ApplicationController
    end
 
   def index
-   @orders = Order.all
+   @orders = Order.where(customer_id:[current_customer.id])
   end
 
   def show
@@ -62,7 +62,8 @@ class Public::OrdersController < ApplicationController
    @order_show = Order.find(params[:id])
   end
 
-private
- def order_params
-   params.require(:order).permit(:payment_method, :postcode, :address, :name, :shipping_fee, :billing_amount, :address_option, :address_id)
+  private
+   def order_params
+     params.require(:order).permit(:payment_method, :postcode, :address, :name, :shipping_fee, :billing_amount, :address_option, :address_id)
+   end
  end
