@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, except: [:top, :about] #topとaboutをログインなしでも閲覧できるように追記
   def top
     @items = Item.where(is_saled: true).order(created_at: :desc)
   end
