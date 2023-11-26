@@ -17,25 +17,22 @@ class Public::CartItemsController < ApplicationController
 
 
 
-  # みかん記載。item.showページから商品をカート追加するために必要
-  #上6行追記：商品をカート追加する際に同商品は統合するため
+  # 最後のredirectは削除。カート追加エラー解消のため
   def create
     amount = cart_item_params[:amount]
     item_id = cart_item_params[:item_id]
     if cart_item = CartItem.find_by(item_id: item_id)
       amount = cart_item.amount + amount.to_i
       cart_item.update(amount: amount)
+      redirect_to cart_items_path
     else
       @cart_item = CartItem.new(cart_item_params)
   		if @cart_item.save
   			redirect_to cart_items_path
   		else
-  			flash[:notice] = "個数を選択してください"
   			redirect_to request.referer
   		end
     end
-  redirect_to cart_items_path
-
   end
 
   def destroy

@@ -23,14 +23,13 @@ class Public::OrdersController < ApplicationController
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-       else
+   else
         # flash[:alert] = "すべて入力してください。"
         redirect_to new_order_path
         # return
-       end
    end
-
  end
+
 
    def create
     @order = Order.new(order_params)
@@ -66,3 +65,5 @@ private
  def order_params
    params.require(:order).permit(:payment_method, :postcode, :address, :name, :shipping_fee, :billing_amount, :address_option, :address_id)
  end
+ 
+end
