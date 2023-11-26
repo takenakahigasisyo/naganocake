@@ -4,17 +4,7 @@
   </div>
 </div>
 
-<% if @list.errors.any? %>
-  <%= @list.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @list.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
 
   <form class="form-horizontal" role="form">
     <div class="form-group text-center">

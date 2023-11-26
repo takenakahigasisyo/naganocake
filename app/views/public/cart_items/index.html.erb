@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="form-group d-flex d-inline mt-2">
+  <div class="form-group d-flex d-inline mt-4">
     <h4 class="">ショッピングカート</h4>
-    <div class="col text-right mb2">
+    <div class="col text-right mb-2">
       <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, class:"btn btn-danger" %>
     </div>
   </div>
@@ -22,13 +22,16 @@
       </tr>
     </thead>
 
-    <thead>
+    <tbody>
       <% total_amount = 0 %>
       <% @cart_items.each do |cart_item| %>
         <tr>
           <td>
-            <!--画像の表示-->
-            <!--< %= attachment_image_tag cart_item, :image %>-->
+            <% if cart_item.image.attached? %>
+              <%= image_tag cart_item.image, size: "50x50" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "50x50" %>
+            <% end %>
             <%= cart_item.item.name %>
           </td>
           <td>
@@ -46,27 +49,44 @@
           <td>
             <%= link_to "削除する", cart_item_path(cart_item), method: :delete, class:"btn btn-danger btn-sm" %>
           </td>
-        </div>
+        </tr>
         <% total_amount += (cart_item.item.price * 1.1 * cart_item.amount) %>
       <% end %>
-    </thead>
+    </tbody>
   </table>
 </div>
 
 <div class="container">
-  <table class="table table-bordered w-25 ml-auto">
-    <thead>
-      <tr>
-        <td class="text-left">合計金額</td>
-        <td class= "text-right"><%= total_amount.floor.to_s(:delimited) %></td>
-      </tr>
-    </thead>
-  </table>
-  <%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %>
-  <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg text-center" %>
+  <div class="row mb-2">
+    <div class="mx-auto">
+      <div class="p-2 g-col-6">
+
+        <%= link_to "買い物を続ける", root_path, class:"btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      
+      <table class="table table-bordered">
+        <tr>
+          <td class="table-active">合計金額</td>
+          <td scope="table-active"><%= total_amount.floor.to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
 
 
 
+
+<div class="container">
+  <div class = "row">
+    <div class="col-md-4 offset-md-5">
+     <span>
+        <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg" %>
+      </span>
+    </div>
+  </div>
+</div>
 
 
