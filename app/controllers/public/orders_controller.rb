@@ -19,11 +19,15 @@ class Public::OrdersController < ApplicationController
         @order.address = address.address
         @order.postcode = address.postcode
    elsif params[:order][:address_option] = "2"
+       # if !params[:order][:postcode].empty? && !params[:order][:address].empty? && !params[:order][:name].empty?
         @order.postcode = params[:order][:postcode]
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-   else
-        render :new
+       else
+        # flash[:alert] = "すべて入力してください。"
+        redirect_to new_order_path
+        # return
+       end
    end
 
  end
@@ -62,4 +66,3 @@ private
  def order_params
    params.require(:order).permit(:payment_method, :postcode, :address, :name, :shipping_fee, :billing_amount, :address_option, :address_id)
  end
-end

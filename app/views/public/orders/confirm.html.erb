@@ -12,7 +12,7 @@
      <% sum = 0 %>
      <% current_customer.cart_items.each do |cart_item| %>
      <tr>
-       <td class="align-middle" style="word-break:break-all"><%= cart_item.item.name %></td>
+       <td class="align-middle" style="word-break:break-all"> <%= image_tag cart_item.item.get_item_image, size: '50x50' %><%= cart_item.item.name %></td>
        <td class="align-middle"><%= cart_item.item.tax_calc %></td>
        <td class="align-middle"><%= cart_item.amount %></td>
        <td class="align-middle"><%= cart_item.sum_of_price %></td>
@@ -43,7 +43,7 @@
 
   <table class="table table-borderless">
    <tr><th>支払方法</th>
-    <td><%= @order.payment_method %></td></tr>
+    <td><%= @order.payment_method_i18n %></td></tr>
    <tr><th>お届け先</th>
     <td><%= "〒" + " " + @order.postcode + " " + @order.address + " " + @order.name %></td></tr>
   </table>
