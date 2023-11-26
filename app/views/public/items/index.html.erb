@@ -3,11 +3,11 @@
   
     <div class="d-flex flex-wrap">
       <% @items.each do |item| %>
-       <div class="card border-0">
+       <div class="card border-0 mr-3">
          <%= link_to item_path(item.id) do %>
           <%= image_tag item.get_item_image, size: '300x200' %>
           <% end %>
-        <div class="card-body">
+        <div class="card-body mr-3">
           <p class="card-title"><%= item.name %></p>
           <p class="card-title">￥ <%= item.price %></p>
         </div>
