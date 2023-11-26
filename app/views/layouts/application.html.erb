@@ -15,8 +15,10 @@
   <body>
 
     <%= render 'layouts/header' %>
-    <%= flash[:notice] %>
+    <!--< %= flash[:notice] %>　　消しました--> 
+    <div style="margin-top: 110px;"> <!--ヘッダーの高さ分marginを設定-->
     <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
 
   </body>
