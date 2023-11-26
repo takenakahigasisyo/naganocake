@@ -34,8 +34,6 @@ class Public::CartItemsController < ApplicationController
   			redirect_to request.referer
   		end
     end
-    
-
   end
 
   def destroy

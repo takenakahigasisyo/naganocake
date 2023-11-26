@@ -14,11 +14,12 @@
          </tr>
          <tr>
            <th class="table-active">支払方法</th>
-           <td><%= @order_show.status_i18n %></td>
+
+           <td><%= @order_show.payment_method_i18n %></td> <!--↓と表示入れ替えました・日本語化しました-->
          </tr>
          <tr>
             <th class="table-active">ステータス</th>
-            <td><%= @order_show.payment_method_i18n %></td>
+            <td><%= @order_show.status_i18n %></td> <!--日本語化しました-->
          </tr>
         </table>
     </div>

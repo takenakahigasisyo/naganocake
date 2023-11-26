@@ -31,7 +31,6 @@ class Public::OrdersController < ApplicationController
    end
 
 
-
    def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -61,6 +60,7 @@ class Public::OrdersController < ApplicationController
    @order = Order.new
    @order_show = Order.find(params[:id])
   end
+
 
   private
    def order_params
