@@ -1,45 +1,48 @@
 <div class="container">
   <div class="row"><h4>注文履歴詳細</h4></div>
-    <div class="row">
-      <div class="col-sm-8 col-md-8 col-lg-8 px-8">
-        <p>注文情報</p>
-          <table class="table table-bordered">
-           <tr>
-             <th class="table-active">注文日</th>
-             <td><%= @order_show.created_at.strftime('%Y/%m/%d') %></td>
-           </tr>
-           <tr>
-             <th class="table-active">配送先</th>
-             <td><%= "〒" + " " + @order_show.postcode + " " + @order_show.address + " " + @order_show.name %></td>
-           </tr>
-           <tr>
-             <th class="table-active">支払方法</th>
-             <td><%= @order_show.payment_method_i18n %></td> <!--↓と表示入れ替えました・日本語化しました-->
-           </tr>
-           <tr>
-              <th class="table-active">ステータス</th>
-              <td><%= @order_show.status_i18n %></td> <!--日本語化しました-->
-           </tr>
-          </table>
-      </div>
 
-      <div class="col-sm-3 col-md-3 col-lg-3 px-3 offset-1">
-        <p>請求情報</p>
-          <table class="table table-bordered">
-           <tr>
-             <th class="table-active">商品合計</th>
-             <td ><%= @order_show.billing_amount - @order_show.shipping_fee %></td>
-           </tr>
-           <tr>
-             <th class="table-active">配送料</th>
-             <td><%= @order_show.shipping_fee %></td>
-           </tr>
-           <tr>
-             <th class="table-active">ご請求額</th>
-             <td><%= @order_show.billing_amount %></td>
-           </tr>
-          </table>
-       </div>
+  <div class="row">
+    <div class="col-sm-8 col-md-8 col-lg-8 px-8">
+      <p>注文情報</p>
+        <table class="table table-bordered">
+         <tr>
+           <th class="table-active">注文日</th>
+           <td class="table-light"><%= @order_show.created_at.strftime('%Y/%m/%d') %></td>
+         </tr>
+         <tr>
+           <th class="table-active">配送先</th>
+           <td class="table-light"><%= "〒" + " " + @order_show.postcode + " " + @order_show.address + " " + @order_show.name %></td>
+         </tr>
+         <tr>
+           <th class="table-active">支払方法</th>
+
+           <td class="table-light"><%= @order_show.payment_method_i18n %></td> <!--↓と表示入れ替えました・日本語化しました-->
+         </tr>
+         <tr>
+            <th class="table-active">ステータス</th>
+            <td class="table-light"><%= @order_show.status_i18n %></td> <!--日本語化しました-->
+         </tr>
+        </table>
+    </div>
+
+    <div class="col-sm-3 col-md-3 col-lg-3 px-3 offset-1">
+      <p>請求情報</p>
+        <table class="table table-bordered">
+         <tr> <!--レイアウト調整-->
+           <th class="table-active">商品合計</th>
+           <td class="table-light"><%= @order_show.billing_amount - @order_show.shipping_fee %></td><!--レイアウト調整-->
+         </tr>
+         <tr>
+           <th class="table-active">配送料</th>
+           <td class="table-light"><%= @order_show.shipping_fee %></td><!--レイアウト調整-->
+         </tr>
+         <tr>
+           <th class="table-active">ご請求額</th>
+           <td class="table-light"><%= @order_show.billing_amount %></td><!--レイアウト調整-->
+         </tr>
+        </table>
+     </div>
+
     </div>
 
     <div class="row">
@@ -55,13 +58,15 @@
              </tr>
           </thead>
          <tbody>
-           <% @order_show.order_details.each do |order_detail| %>
-            <tr>
-               <td style="word-break:break-all"><%= order_detail.item.name %></td>
-               <td><%= order_detail.item.tax_calc %></td>
-               <td><%= order_detail.amount %></td>
-               <td><%= order_detail.item.tax_calc * order_detail.amount %></td>
-             </tr>
+
+          <% @order_show.order_details.each do |order_detail| %>
+          <tr class="table-light">
+             <td style="word-break:break-all"><%= order_detail.item.name %></td>
+             <td><%= order_detail.item.tax_calc %></td>
+             <td><%= order_detail.amount %></td>
+             <td><%= order_detail.item.price * order_detail.amount %></td>
+           </tr>
+
            <% end %>
          </tbody>
         </table>

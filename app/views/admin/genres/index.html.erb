@@ -26,7 +26,7 @@
   </thead>
   <tbody>
     <% @genres.each do |genre| %>
-      <tr>
+      <tr class="table-light"><!--レイアウト調整-->
         <td><%= genre.name %></td>
         <td><%= link_to "編集する", edit_admin_genre_path(genre.id), method: :get, class: 'btn btn-outline-dark' %></td>
       </tr>

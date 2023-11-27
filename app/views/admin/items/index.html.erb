@@ -21,7 +21,7 @@
       </tr>
       </thead>
       <% @items.each do |item| %>
-      <tr>
+      <tr class="table-light">
         <td><%= item.id %></td>
         <td><%= link_to "#{item.name}", admin_item_path(item.id) %></td>
         <td><%= item.price.to_s(:delimited) %></td>
