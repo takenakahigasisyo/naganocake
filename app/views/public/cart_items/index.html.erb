@@ -7,7 +7,7 @@
   </div>
 
   <table class="table table-bordered">
-    <thead>
+    <thead class="thead-light"><!--レイアウト調整-->
       <tr height="center" align="center">
         <th>商品名</th>
         <th>単価（税込）</th>
@@ -20,7 +20,7 @@
     <tbody>
       <% total_amount = 0 %>
       <% @cart_items.each do |cart_item| %>
-        <tr>
+        <tr class="table-light"><!--レイアウト調整-->
           <td class="align-middle">
             <%= image_tag cart_item.item.get_item_image, size: '100x100' %>
             <%= cart_item.item.name %>
@@ -59,8 +59,8 @@
       
       <table class="table table-bordered">
         <tr>
-          <td class="table-active">合計金額</td>
-          <td scope="table-active"><%= total_amount.floor.to_s(:delimited) %>円</td>
+          <td class="table-active" style="background-color: rgb(222 226 230);">合計金額</td><!--力技レイアウト調整-->
+          <td class="table-light" scope="table-active"><%= total_amount.floor.to_s(:delimited) %>円</td><!--レイアウト調整-->
         </tr>
       </table>
     </div>
@@ -68,10 +68,8 @@
   
   <div class = "row">
     <div class="col-md-4 offset-md-5">
-      <span>
-        <% if @cart_items.any? %>
-          <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg" %>
-        <% end %>
+     <span>
+        <%= link_to "情報入力に進む", new_order_path, class:"btn btn-success btn-lg" %>
       </span>
     </div>
   </div>

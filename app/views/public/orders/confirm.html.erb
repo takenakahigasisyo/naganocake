@@ -4,15 +4,17 @@
     <div class="row">
       <div class="col-sm-7 offset-sm-1">
         <table class="table table-bordered">
+          <thead class="thead-light"><!--レイアウト調整-->
           <tr>
             <th class="table-active" style="width:50%">商品名</th>
             <th class="table-active" style="width:20%">単価（税込）</th>
             <th class="table-active" style="width:15%">数量</th>
            <th class="table-active" style="width:15%">小計</th>
           </tr>
+          </thead>
            <% sum = 0 %>
            <% current_customer.cart_items.each do |cart_item| %>
-          <tr>
+          <tr class="table-light"><!--レイアウト調整-->
             <td class="align-middle" style="word-break:break-all"> <%= image_tag cart_item.item.get_item_image, size: '50x50' %><%= cart_item.item.name %></td>
             <td class="align-middle"><%= cart_item.item.tax_calc %></td>
             <td class="align-middle"><%= cart_item.amount %></td>
@@ -25,18 +27,20 @@
 
      <div class="col-sm-3">
         <table class="table table-bordered">
+          <thead class="thead-light"><!--レイアウト調整-->
           <tr>
             <th class="table-active" style="width:50%">送料</th>
-            <td><%= @shipping_fee %></td>
+            <td class="table-light"><%= @shipping_fee %></td>
           </tr>
           <tr>
             <th class="table-active" style="width:50%">商品合計</th>
-            <td><%= sum %></td>
+            <td class="table-light"><%= sum %></td>
           </tr>
           <tr>
             <th class="table-active" style="width:50%">請求金額</th>
-            <td><%= sum + @shipping_fee %></td>
+            <td class="table-light"><%= sum + @shipping_fee %></td>
           </tr>
+          <thead>
         </table>
      </div>
 
