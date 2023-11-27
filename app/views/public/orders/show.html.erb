@@ -64,7 +64,7 @@
              <td style="word-break:break-all"><%= order_detail.item.name %></td>
              <td><%= order_detail.item.tax_calc %></td>
              <td><%= order_detail.amount %></td>
-             <td><%= order_detail.item.price * order_detail.amount %></td>
+             <td><%= order_detail.item.tax_calc * order_detail.amount %></td>
            </tr>
 
            <% end %>
