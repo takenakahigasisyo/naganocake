@@ -21,12 +21,12 @@
   </div>
  <div class="row justify-content-center mt-4">
  <% @items.first(4).each do |item| %>
-    <div class="mr-2">
+    <div>
      <%= link_to item_path(item.id) do %>
      <%= image_tag item.get_item_image, size: '200x150' %>
     <div>
-     <p class="mr-2 text-center"><%= item.name %></p>
-     <p class="mr-2 text-center">￥ <%= item.price %></p>
+     <p><%= item.name %></p>
+     <p>￥ <%= item.price %></p>
     </div>
     </div>
      <% end %>
