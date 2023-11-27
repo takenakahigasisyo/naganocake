@@ -12,6 +12,4 @@ class Order < ApplicationRecord
   validates :address,presence: true
   validates :postcode,presence: true
   validates :name,presence: true
-
-
 end

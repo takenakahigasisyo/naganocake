@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row"><h4>注文履歴詳細</h4></div>
+
   <div class="row">
     <div class="col-sm-8 col-md-8 col-lg-8 px-8">
       <p>注文情報</p>
@@ -41,21 +42,23 @@
          </tr>
         </table>
      </div>
+
     </div>
 
-     <div class="row">
-       <div class="col-sm-8 col-md-8 col-lg-8 px-8">
-        <p>注文内容</p>
-        <table class="table table-bordered">
-         <thead>
-          <tr>
-            <th class="table-active" style="width:60%">商品</th>
-            <th class="table-active" style="width:20%">単価（税込）</th>
-            <th class="table-active" style="width:10%">個数</th>
-            <th class="table-active" style="width:10%">小計</th>
-          </tr>
-         </thead>
+    <div class="row">
+      <div class="col-sm-8 col-md-8 col-lg-8 px-8">
+       <p>注文内容</p>
+         <table class="table table-bordered">
+           <thead>
+             <tr>
+              <th class="table-active" style="width:60%">商品</th>
+              <th class="table-active" style="width:20%">単価（税込）</th>
+              <th class="table-active" style="width:10%">個数</th>
+              <th class="table-active" style="width:10%">小計</th>
+             </tr>
+          </thead>
          <tbody>
+
           <% @order_show.order_details.each do |order_detail| %>
           <tr class="table-light">
              <td style="word-break:break-all"><%= order_detail.item.name %></td>
@@ -63,10 +66,10 @@
              <td><%= order_detail.amount %></td>
              <td><%= order_detail.item.price * order_detail.amount %></td>
            </tr>
+
            <% end %>
          </tbody>
         </table>
        </div>
      </div>
-
 </div>

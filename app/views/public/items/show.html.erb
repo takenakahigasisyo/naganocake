@@ -7,7 +7,7 @@
         <div class="h-100">
           <h3><strong><%= @item.name %></strong></h3>
           <p style="height: 200px;", class="text-5xl"><strong><%= @item.explanation %></strong></p>
-          <h3><strong>￥ <%= @item.price %><small class="h6">（税込）</small></strong></h3>
+          <h3><strong>￥ <%= (@item.price * 1.1).floor %><small class="h6">（税込）</small></strong></h3>
         </div>
         
         <% if customer_signed_in? %>

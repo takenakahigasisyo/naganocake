@@ -17,7 +17,6 @@ class Public::CartItemsController < ApplicationController
 
 
 
-  # 最後のredirectは削除。カート追加エラー解消のため
   def create
     amount = cart_item_params[:amount]
     item_id = cart_item_params[:item_id]
