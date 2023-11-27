@@ -62,7 +62,7 @@
           <% @order_show.order_details.each do |order_detail| %>
           <tr class="table-light">
              <td style="word-break:break-all"><%= order_detail.item.name %></td>
-             <td><%= order_detail.item.price %></td>
+             <td><%= order_detail.item.tax_calc %></td>
              <td><%= order_detail.amount %></td>
              <td><%= order_detail.item.price * order_detail.amount %></td>
            </tr>
